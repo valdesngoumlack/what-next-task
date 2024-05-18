@@ -1,0 +1,8 @@
+{
+  "name": "WhatNext Task",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "b9cef79c"
+}
