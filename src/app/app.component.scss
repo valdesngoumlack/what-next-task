@@ -1,0 +1,61 @@
+.appHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-color: #0B5C46;
+    padding: 10px;
+    color: white;
+}
+
+.avatar {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.currentDayBar{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0B5C46;
+}
+
+.currentDay{
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    color: #0B5C46;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+.currentDay h1{
+    font-weight: bold;
+}
+
+.currentMonthDays{
+    padding: 10px;
+    background-color: #0B5C46;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.currentMonthDays::-webkit-scrollbar{
+    display: none;
+}
+
+.currentMonthSingleDay{
+    margin-right: 10px;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}

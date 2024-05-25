@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-calculator',
+  templateUrl: './calculator.page.html',
+  styleUrls: ['./calculator.page.scss'],
 })
-export class HomePage {
+export class CalculatorPage implements OnInit {
 
   entryOne: number = 0;
   entryTwo: number = 0;
@@ -14,6 +14,10 @@ export class HomePage {
   result = 0;
 
   constructor() { }
+  ngOnInit(): void {
+    console.log('dans home');
+    
+  }
 
   clickBtn() {
     console.log('Hello Method');
