@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'task-list/:taskid',
     loadChildren: () => import('./pages/task-list/task-list.module').then( m => m.TaskListPageModule)
   },
+  {
+    path: 'profil',
+    loadChildren: () => import('./pages/profil/profil.module').then( m => m.ProfilPageModule)
+  },
 ];
 
 @NgModule({

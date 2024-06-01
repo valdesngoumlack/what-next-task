@@ -1,7 +1,37 @@
-.page{
+.page {
     background-color: white;
     color: black;
     height: 100%;
     padding: 10px;
 }
 
+ion-card {
+    background-color: #F0F4F7;
+}
+
+ion-card {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+}
+
+ion-card ion-card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+ion-card-title {
+    color: #0B5C46;
+    font-weight: bold;
+}
+
+.groupList {
+    padding-top: 30px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}

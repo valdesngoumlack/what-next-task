@@ -34,54 +34,36 @@
               <h1>Liste des taches</h1>
             </ion-text>
             <ion-select aria-label="Mois" interface="popover" placeholder="Mois">
-              <ion-select-option *ngFor="let monthIndex of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="monthIndex"
-                (click)="selectMonth(monthIndex)">
-                {{getMonthName(monthIndex)}}
+              <ion-select-option *ngFor="let monthIndex of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="monthIndex">
+                {{displayMonthName(monthIndex)}}
               </ion-select-option>
             </ion-select>
           </div>
-          <div class="currentDay" (click)="showDaysOfTheMonth()">
+          <div class="currentDay" (click)="monthDaysIsDisplayed = !monthDaysIsDisplayed">
             <div>
-              <h1>22</h1>
+              <h1>{{displayDayOfMonth(toDay.getDate())}}</h1>
             </div>
             <div>
-              <h3>Sam</h3>
+              <h3>{{displayDayOfMonthName(toDay)}}</h3>
             </div>
           </div>
         </div>
         <div class="currentMonthDays" *ngIf="monthDaysIsDisplayed === true">
-          <div class="currentMonthSingleDay">
+          <div class="currentMonthSingleDay" *ngFor="let day of currentMonthDays">
             <div>
-              <h1>22</h1>
+              <h1>{{displayDayOfMonth(day.getDate())}}</h1>
             </div>
             <div>
-              <h3>Sam</h3>
+              <h3>{{displayDayOfMonthName(day)}}</h3>
             </div>
           </div>
         </div>
         <div>
-
-      <ion-accordion-group *ngIf="monthDaysIsDisplayed === true">
-        <ion-accordion value="first">
-          <ion-item slot="header" color="light">
-            <ion-label>Liste des Jours</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-list>
-              <ion-item *ngFor="let singleDate of selectedMonthDays">
-                <ion-label>{{singleDate.toLocaleDateString('fr-FR', this.options)}}</ion-label>
-              </ion-item>
-            </ion-list>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
         </div>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-
       <ion-router-outlet></ion-router-outlet>
-
     </ion-content>
   </div>
 </ion-app>
