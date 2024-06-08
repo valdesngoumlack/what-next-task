@@ -18,4 +18,47 @@
       </ion-grid>
     </div>
   </div>
+
+  <ion-fab id="open-modal" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal
+    trigger="open-modal"
+    [initialBreakpoint]="0.35"
+    [breakpoints]="[0, 0.35, 0.5, 0.80]"
+    handleBehavior="cycle"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <div class="ion-margin-top" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
+          <h1 style="text-align: center; font-weight: bold;">
+            Ajouter une Tâche
+          </h1>
+
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <ion-item>
+              <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="email" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="password" type="text"></ion-input>
+            </ion-item>
+
+            <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+              Login
+            </ion-button>
+          </form>
+
+
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

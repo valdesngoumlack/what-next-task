@@ -77,6 +77,9 @@ export class AppComponent implements OnInit{
     await this.router.navigate(['task-list/'+1]);
   }
 
+  async openTaskProfilPage(){
+    await this.router.navigate(['profil']);
+  }
   async openCalculatorPage(){
     await this.router.navigate(['calculator']);
   }

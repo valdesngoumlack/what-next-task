@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { MathsService } from 'src/app/services/maths/maths.service';
 
 @Component({
   selector: 'app-calculator',
@@ -13,10 +15,12 @@ export class CalculatorPage implements OnInit {
 
   result = 0;
 
-  constructor() { }
+  constructor(
+    private maths: MathsService
+  ) { }
+
   ngOnInit(): void {
     console.log('dans home');
-    
   }
 
   clickBtn() {
@@ -27,10 +31,10 @@ export class CalculatorPage implements OnInit {
     let valeuFinal = '';
 
     if (this.sign.length > 0) {
-      valeuFinal = this.entryTwo +''+selectedNumber;
+      valeuFinal = this.entryTwo + '' + selectedNumber;
       this.entryTwo = Number.parseFloat(valeuFinal);
     } else {
-      valeuFinal = this.entryOne +''+selectedNumber;
+      valeuFinal = this.entryOne + '' + selectedNumber;
       this.entryOne = Number.parseFloat(valeuFinal);
     }
   }
@@ -44,16 +48,19 @@ export class CalculatorPage implements OnInit {
 
       switch (this.sign) {
         case '+':
-          this.result = this.entryOne + this.entryTwo;
+          this.result = this.maths.addition(this.entryOne, this.entryTwo);          
           break;
         case '-':
-          this.result = this.entryOne - this.entryTwo;
+          this.result = this.maths.soustraction(this.entryOne, this.entryTwo);
           break;
         case '*':
           this.result = this.entryOne * this.entryTwo;
           break;
         case '/':
           this.result = this.entryOne / this.entryTwo;
+          break;
+        case '%':
+          this.result = this.maths.percent(this.entryOne, this.entryTwo);
           break;
 
         default:
@@ -64,7 +71,7 @@ export class CalculatorPage implements OnInit {
     }
   }
 
-  reset(){
+  reset() {
     this.entryOne = 0;
     this.entryTwo = 0;
     this.sign = '';

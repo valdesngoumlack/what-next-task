@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TaskGroup } from 'src/app/models/models-ui';
+import { MathsService } from 'src/app/services/maths/maths.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,18 @@ import { TaskGroup } from 'src/app/models/models-ui';
 })
 export class HomePage implements OnInit {
   taskGroupList : TaskGroup[] = [];
+  loginForm !: FormGroup;
 
-  constructor() {
+  constructor(
+    private mathUtil : MathsService
+  ) {
+    this.loginForm = new FormGroup({
+      email : new FormControl(""),
+      password: new FormControl("")
+    });
+
+
+
     const personalTask = new TaskGroup();
     personalTask.id = 2;
     personalTask.name = 'Personnelles',
@@ -41,6 +53,17 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  onSubmit(){
+    const loginFormValues = this.loginForm.value;
+
+    const emailValue : string = loginFormValues.email;
+    const passwordValue : string = loginFormValues.password;
+    
+    console.log('emailValue:'+emailValue);
+    console.log('passwordValue:'+passwordValue);
+    
   }
 
 }
