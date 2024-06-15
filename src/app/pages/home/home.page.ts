@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TaskGroup } from 'src/app/models/models-ui';
 import { MathsService } from 'src/app/services/maths/maths.service';
 
@@ -13,7 +14,8 @@ export class HomePage implements OnInit {
   loginForm !: FormGroup;
 
   constructor(
-    private mathUtil : MathsService
+    private mathUtil : MathsService,
+    private router : Router
   ) {
     this.loginForm = new FormGroup({
       email : new FormControl(""),
@@ -25,27 +27,27 @@ export class HomePage implements OnInit {
     const personalTask = new TaskGroup();
     personalTask.id = 2;
     personalTask.name = 'Personnelles',
-    personalTask.iconName = '';
+    personalTask.iconName = 'person-outline';
     personalTask.tasks = [];
 
     this.taskGroupList.push(
       {
         id : 1,
         name : 'Toutes',
-        iconName : '',
+        iconName : 'document-text-outline',
         tasks : []
       },
       personalTask,
       {
         id : 3,
         name : 'Travail',
-        iconName: '',
+        iconName: 'wallet-outline',
         tasks : []
       },
       {
         id : 4,
         name : 'Idées',
-        iconName: '',
+        iconName: 'bulb-outline',
         tasks : []
       }
     );
@@ -66,4 +68,7 @@ export class HomePage implements OnInit {
     
   }
 
+  async openTaskList(taskGroupId : number){
+    await this.router.navigate(['task-list/'+taskGroupId]);
+  }
 }

@@ -56,16 +56,7 @@ export class AppComponent implements OnInit{
     dayStr = dayParts[0];
     dayStr = dayStr.substring(0, 3);
 
-    return dayStr[0].toLocaleUpperCase()+dayStr.substring(1);
-
-    /*'dimanche 9 juin 2024'
-
-    'dimanche'
-    '9'
-    'juin'
-    '2024'*/
-
-    
+    return dayStr[0].toLocaleUpperCase()+dayStr.substring(1);    
   }
 
 
