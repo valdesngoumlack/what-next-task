@@ -74,4 +74,7 @@ export class AppComponent implements OnInit{
   async openCalculatorPage(){
     await this.router.navigate(['calculator']);
   }
+  async openDashboadPage(){
+    await this.router.navigate(['dashboad']);
+  }
 }
